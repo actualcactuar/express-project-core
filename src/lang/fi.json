@@ -1,1 +1,18 @@
-{"pageTitle":"Express sovellus"}
+{
+    "meta":{
+        "title":"Express core",
+        "lang":"fi",
+        "description":"Projektipohja node.js - express - EJS palvelinkokonaisuudelle"
+    },
+    "routes":{
+        "about":{
+            "mainTitle":"Tervetuloa tietoa meistä -sivulla",
+            "mainDescription":"Tältä sivulta löydät tietoa meistä, toiminnastamme sekä yhteystietomme."
+        }
+    },
+    "notFound":{
+        "errorMsgStart":"Hups! Pyytämääsi sivua",
+        "errorMsgEnd":"ei löytyny."
+    }
+    
+}

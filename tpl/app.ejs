@@ -3,15 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Title</title>
+    <title><%=lang.meta.title%></title>
+    <meta name="description" content="<%=lang.meta.description%>">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" media="screen" href="/build/css/index.css">
 </head>
 <body>
 
-<p>test</p>
+
 <router-outlet>
-<p><%= lang.pageTitle %></p>
 <%- include(`routes/${route}`) %>
 </router-outlet>
 

@@ -1,1 +1,18 @@
-{"pageTitle":"Express app"}
+{
+    "meta":{
+        "title":"Express core",
+        "lang":"en",
+        "description":"Project core for node.js - express - ejs stack"
+    },
+    "routes":{
+        "about":{
+            "mainTitle":"Welcome to about us page",
+            "mainDescription":"On this page you'll find content about us and what we do"
+        }
+    },
+    "notFound":{
+        "errorMsgStart":"Whoops! Requested page",
+        "errorMsgEnd":"could not be found."
+    }
+    
+}
