@@ -1,13 +1,10 @@
 const path = require('path');
-const fs = require('fs')
 const express = require('express');
 const bodyparser = require ('body-parser');
 const app = express();
 const port = process.env.PORT || 3000;
 const langs = require('./src/lib/langs');
-const routes = {
-    'about':'about.ejs',
-}
+const routes = require('./src/lib/routes');
 
 app.set('port', port);
 app.set('view engine','ejs');
@@ -27,24 +24,19 @@ app.get('/', (req, res) => {
     res.redirect(`/${app.get('lang')}`);
 })
 
-
-app.get('/:lang', (req, res) => {
+app.get('/:lang([a-z]{2})', (req, res) => {
     var lang = req.params.lang;
-
-    if(lang in langs){
-        console.log(langs[lang])
-        res.render('app.ejs',{lang:langs[lang],route:'landing.ejs'})
-    } else {
-        res.render('app.ejs',{lang:langs.en,route:'notFound.ejs'})
-    }
+    var verifiedLang = lang && lang in langs ? langs[lang] : langs['en'];
+    var route = lang && lang in langs ? 'landing.ejs' : 'notFound.ejs';
+    res.render('app.ejs',{lang:verifiedLang,route:route});
 })
 
-app.get('/:lang/:route', (req, res) => {
-    var lang = langs[req.params.lang];
+app.get('/:lang([a-z]{2})/:route', (req, res) => {
+    var lang = req.params.lang;
+    var verifiedLang = lang && lang in langs ? langs[lang] : langs['en'];
     var route = req.params.route;
-    var verifiedRoute = route && route in routes ? route : 'notFound.ejs';
-    res.render('app.ejs',{lang:lang,route:routes[verifiedRoute]});
-
+    var verifiedRoute = route && route in routes ? routes[route] : 'notFound.ejs';
+    res.render('app.ejs',{lang:verifiedLang,route:verifiedRoute});
 })
 
 app.get('*', (req, res) => {
