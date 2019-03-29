@@ -3,8 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Express app</title>
+    <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" media="screen" href="/build/css/index.css">
 </head>
 <body>
+
+<p>test</p>
+<router-outlet>
+<p><%= lang.pageTitle %></p>
+<%- include(`routes/${route}`) %>
+</router-outlet>
+
+
+</body>
+<script src="/build/js/index.js"></script> 
+</html>
